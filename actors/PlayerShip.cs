@@ -18,4 +18,14 @@ public class PlayerShip : Spatial
     {
 
     }
+
+    public override void _PhysicsProcess(float delta)
+    {
+        
+
+        if (Input.IsActionPressed("Turn Left"))
+        {
+
+        }
+    }
 }
