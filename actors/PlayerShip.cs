@@ -56,10 +56,11 @@ public class PlayerShip : RigidBody
 
         var raySrc = cam.ProjectRayOrigin(GetViewport().GetMousePosition());
         var rayNorm = cam.ProjectRayNormal(GetViewport().GetMousePosition());
+        var rayTo = raySrc + rayNorm * 100;
 
-        var curPos = GetWorld().DirectSpaceState.IntersectRay(raySrc, raySrc + rayNorm * 10000);
+        var curPos = GetWorld().DirectSpaceState.IntersectRay(raySrc, rayTo);
 
-        Console.WriteLine($"raySrc={raySrc}, curPos={rayNorm}");
+        Console.WriteLine($"raySrc={raySrc}, rayTo={rayTo}");
 
         if (curPos != null && curPos.Contains("position"))
         {
