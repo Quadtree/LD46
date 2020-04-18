@@ -78,8 +78,10 @@ public class PlayerShip : RigidBody
 
         //Console.WriteLine($"raySrc={raySrc}, rayTo={rayTo}");
 
+        //Console.WriteLine($"delta={()}");
+
         var tpv2 = new Vector2(pos.x, pos.z);
-        var spv2 = new Vector2(this.GetGlobalLocation().x, this.GetGlobalLocation().y);
+        var spv2 = new Vector2(this.GetGlobalLocation().x, this.GetGlobalLocation().z);
 
         var wantedAngle = (spv2 - tpv2).Normalized();
         var actualAngle = new Vector2(GlobalTransform.basis.z.x, GlobalTransform.basis.z.z);
