@@ -7,9 +7,9 @@ Different types of creatures you're transporting. And probably other cargos.
 
 # Completed Tasks
 * "Braking"
+* Fix new orientation issue
 
 # Tasks
-* Fix new orientation issue
 * Asteroids
 * Stations
 * Cargoes
