@@ -6,3 +6,12 @@ You ahve to go on a cross-sector trip or something.
 Different types of creatures you're transporting. And probably other cargos.
 
 # Tasks
+* "Braking"
+* Asteroids
+* Stations
+* Cargoes
+* Enemies
+* Planets
+* Title screen
+* Sound effects
+* Music
