@@ -65,33 +65,23 @@ public class PlayerShip : RigidBody
 
         var pos = new Vector3();
 
-        for (int i=0;i<100;i++){
-            raySrc += rayNorm;
-            if (raySrc.y < 0){
-                pos = raySrc;
-                break;
-            }
+        var curPos = GetWorld().DirectSpaceState.IntersectRay(raySrc, rayTo);
+
+        if (curPos.Contains("position"))
+        {
+            pos = (Vector3)curPos["position"];
+
+            var tpv2 = new Vector2(pos.x, pos.z);
+            var spv2 = new Vector2(this.GetGlobalLocation().x, this.GetGlobalLocation().z);
+
+            var wantedAngle = (spv2 - tpv2).Normalized();
+            var actualAngle = new Vector2(GlobalTransform.basis.z.x, GlobalTransform.basis.z.z);
+
+            var angleToWantedAngle = actualAngle.Normalized().AngleTo(wantedAngle.Normalized());
+
+            CurrentTurn = 0;
+            if (angleToWantedAngle > 5.8f * delta) CurrentTurn = 1;
+            if (angleToWantedAngle < -5.8f * delta) CurrentTurn = -1;
         }
-
-        // we had to do that because raycasting is inexplicably broken
-        //var curPos = GetWorld().DirectSpaceState.IntersectRay(raySrc, rayTo);
-
-        //Console.WriteLine($"raySrc={raySrc}, rayTo={rayTo}");
-
-        //Console.WriteLine($"delta={()}");
-
-        var tpv2 = new Vector2(pos.x, pos.z);
-        var spv2 = new Vector2(this.GetGlobalLocation().x, this.GetGlobalLocation().z);
-
-        var wantedAngle = (spv2 - tpv2).Normalized();
-        var actualAngle = new Vector2(GlobalTransform.basis.z.x, GlobalTransform.basis.z.z);
-
-        var angleToWantedAngle = actualAngle.Normalized().AngleTo(wantedAngle.Normalized());
-
-        //Console.WriteLine($"angleToWantedAngle={angleToWantedAngle} wantedAngle={wantedAngle} actualAngle={actualAngle}");
-
-        CurrentTurn = 0;
-        if (angleToWantedAngle > 5.8f * delta) CurrentTurn = 1;
-        if (angleToWantedAngle < -5.8f * delta) CurrentTurn = -1;
     }
 }
