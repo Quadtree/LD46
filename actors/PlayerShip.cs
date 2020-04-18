@@ -59,11 +59,11 @@ public class PlayerShip : RigidBody
 
         var curPos = GetWorld().DirectSpaceState.IntersectRay(raySrc, raySrc + rayNorm * 10000);
 
-        //Console.WriteLine($"raySrc={raySrc}, curPos={curPos}");
+        Console.WriteLine($"raySrc={raySrc}, curPos={rayNorm}");
 
         if (curPos != null && curPos.Contains("position"))
         {
-            Console.WriteLine("RID=" + curPos["collider"]);
+            Console.WriteLine("pos=" + curPos["position"]);
 
             var pos = (Vector3)curPos["position"];
 
