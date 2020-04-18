@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class PlayerShip : Spatial
+public class PlayerShip : RigidBody
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -21,7 +21,7 @@ public class PlayerShip : Spatial
 
     public override void _PhysicsProcess(float delta)
     {
-        
+
 
         if (Input.IsActionPressed("Turn Left"))
         {
