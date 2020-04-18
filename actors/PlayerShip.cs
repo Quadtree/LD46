@@ -7,6 +7,9 @@ public class PlayerShip : RigidBody
     // private int a = 2;
     // private string b = "text";
 
+    [Export]
+    public float TurnRate = 1.5f;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -19,13 +22,25 @@ public class PlayerShip : RigidBody
 
     }
 
+    public override void _IntegrateForces(PhysicsDirectBodyState state)
+    {
+        state.AngularVelocity = new Vector3(0,0,0);
+
+        if (Input.IsActionPressed("Turn Left"))
+        {
+            state.AngularVelocity = new Vector3(0,TurnRate,0);
+        }
+
+        if (Input.IsActionPressed("Turn Right"))
+        {
+            state.AngularVelocity = new Vector3(0,-TurnRate,0);
+        }
+    }
+
     public override void _PhysicsProcess(float delta)
     {
 
 
-        if (Input.IsActionPressed("Turn Left"))
-        {
 
-        }
     }
 }

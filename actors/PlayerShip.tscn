@@ -7,10 +7,11 @@
 
 [node name="PlayerShip" type="RigidBody"]
 gravity_scale = 0.0
-axis_lock_linear_z = true
+axis_lock_linear_y = true
 axis_lock_angular_x = true
-axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource( 2 )
+TurnRate = 2.5
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
