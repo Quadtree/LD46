@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LD46", "LD46.csproj", "{2318DE2A-2481-43F4-8C8F-0B5B12165BD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	Release|Any CPU = Release|Any CPU
+	Tools|Any CPU = Tools|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2318DE2A-2481-43F4-8C8F-0B5B12165BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2318DE2A-2481-43F4-8C8F-0B5B12165BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2318DE2A-2481-43F4-8C8F-0B5B12165BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2318DE2A-2481-43F4-8C8F-0B5B12165BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2318DE2A-2481-43F4-8C8F-0B5B12165BD5}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
+		{2318DE2A-2481-43F4-8C8F-0B5B12165BD5}.Tools|Any CPU.Build.0 = Tools|Any CPU
+	EndGlobalSection
+EndGlobal
