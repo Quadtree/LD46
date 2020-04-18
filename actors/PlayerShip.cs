@@ -48,6 +48,11 @@ public class PlayerShip : RigidBody
         {
             state.AddCentralForce(-state.Transform.basis.z * ThrustPower);
         }
+
+        if (Input.IsActionPressed("Thrust Brake"))
+        {
+            state.AddCentralForce(state.LinearVelocity.Normalized() * -ThrustPower);
+        }
     }
 
     public override void _PhysicsProcess(float delta)
