@@ -63,7 +63,8 @@ public class EnemyShip : RigidBody
                     FireCharge = 0;
                     var proj = (EnemyProjectile)ProjectileType.Instance();
                     GetTree().Root.AddChild(proj);
-                    proj.Transform = Transform;
+                    proj.SetGlobalLocation(this.GetGlobalLocation());
+                    proj.LookAt(ps.GetGlobalLocation() + ps.LinearVelocity * (rangeToTarget / 50), Vector3.Up);
                     proj.LinearVelocity = -proj.Transform.basis.z * 50;
                 }
             }

@@ -21,9 +21,13 @@ public class PlayerRespawner : Spatial
     {
         RespawnTime -= delta;
 
+        Console.WriteLine($"Respawning in {RespawnTime}");
+
         if (RespawnTime <= 0)
         {
-            var ns = ((PackedScene)GD.Load("res://actors/PlayerRespawner.tscn")).Instance();
+            QueueFree();
+            RespawnTime = 1000;
+            var ns = ((PackedScene)GD.Load("res://actors/PlayerShip.tscn")).Instance();
             GetTree().Root.AddChild(ns);
         }
     }

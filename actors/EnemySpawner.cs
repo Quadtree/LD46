@@ -24,7 +24,7 @@ public class EnemySpawner : Spatial
 
         if (ps != null)
         {
-            if (Util.random() * 10 < delta)
+            if (Util.random() * 3 < delta)
             {
                 Console.WriteLine($"Spawning enemy {EnemyTypes}");
 
