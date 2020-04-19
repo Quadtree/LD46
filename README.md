@@ -26,6 +26,7 @@ Different types of creatures you're transporting. And probably other cargos.
 * Actual map layout
 
 # Tasks
+* Make key commands not dismiss modals
 * More cargo types
 * Cargo descriptions
 * Proper materials for stations and asteroids
