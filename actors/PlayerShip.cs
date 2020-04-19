@@ -84,6 +84,8 @@ public class PlayerShip : RigidBody
                 case 6: NextCargo = new FearfulFerret(); break;
                 case 7: NextCargo = new DizzyDoormouse(); break;
             }
+
+            NextCargo.OwningNode = this;
         }
 
         CargoInvulnerableTime -= delta;
@@ -217,6 +219,8 @@ public class PlayerShip : RigidBody
         {
             if (NextCargo != null)
             {
+                Util.SpawnOneShotSound("res://sounds/MissionStart.wav", this, this.GetGlobalLocation());
+
                 Cargo = NextCargo;
                 NextCargo = null;
 

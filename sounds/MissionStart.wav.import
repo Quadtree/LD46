@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MissionStart.wav-09c2878278eaab7f9b0a76c9d0d3f43e.sample"
+
+[deps]
+
+source_file="res://sounds/MissionStart.wav"
+dest_files=[ "res://.import/MissionStart.wav-09c2878278eaab7f9b0a76c9d0d3f43e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

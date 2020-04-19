@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShipDestroyed.wav-ce9099e13d1320aaa71b68772d2d1a56.sample"
+
+[deps]
+
+source_file="res://sounds/ShipDestroyed.wav"
+dest_files=[ "res://.import/ShipDestroyed.wav-ce9099e13d1320aaa71b68772d2d1a56.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

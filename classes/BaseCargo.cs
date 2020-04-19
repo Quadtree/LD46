@@ -3,7 +3,21 @@ using System;
 
 public class BaseCargo
 {
-    public float HP = 1f;
+    private float _HP = 1f;
+
+    public float HP {
+        get {
+            return _HP;
+        }
+        set {
+            if (value < _HP){
+                Util.SpawnOneShotSound((AudioStreamSample)GD.Load("res://sounds/CargoDamaged.wav"), OwningNode, OwningNode.GetGlobalLocation());
+            }
+            _HP = value;
+        }
+    }
+
+    public Spatial OwningNode;
 
     public virtual string Name { get { return "???"; }}
 
