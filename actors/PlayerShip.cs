@@ -203,6 +203,16 @@ public class PlayerShip : RigidBody
     {
         //Console.WriteLine($"COL {body}");
 
+        if (body is SpaceStation)
+        {
+            float maxRepairAmount = GetTree().Root.FindChildByType<PlayerMoneyHolder>().Money / 200;
+
+            float actualRepairAmount = Math.Min(maxRepairAmount, 1 - HP);
+
+            HP += actualRepairAmount;
+            GetTree().Root.FindChildByType<PlayerMoneyHolder>().Money -= (int)(actualRepairAmount * 200);
+        }
+
         if (body == NextStation)
         {
             if (NextCargo != null)
