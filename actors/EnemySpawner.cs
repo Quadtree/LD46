@@ -24,20 +24,27 @@ public class EnemySpawner : Spatial
 
         if (ps != null)
         {
+
+
             if (Util.random() * 3 < delta)
             {
-                Console.WriteLine($"Spawning enemy {EnemyTypes}");
+                var numEnemies = GetTree().Root.FindChildrenByType<EnemyShip>().Count;
 
-                var toSpawn = EnemyTypes[Util.RandInt(0, EnemyTypes.Count)];
+                if (numEnemies < 6)
+                {
+                    Console.WriteLine($"Spawning enemy {EnemyTypes}");
 
-                Console.WriteLine("Determining offset");
-                var offset = new Vector3(Util.random() - 0.5f, 0, Util.random() - 0.5f).Normalized() * 80;
+                    var toSpawn = EnemyTypes[Util.RandInt(0, EnemyTypes.Count)];
 
-                Console.WriteLine("About to instantiate");
-                var enemy = (RigidBody)toSpawn.Instance();
-                GetTree().Root.AddChild(enemy);
-                Console.WriteLine("Spawn is complete, setting location");
-                enemy.SetGlobalLocation(ps.GetGlobalLocation() + offset);
+                    Console.WriteLine("Determining offset");
+                    var offset = new Vector3(Util.random() - 0.5f, 0, Util.random() - 0.5f).Normalized() * 80;
+
+                    Console.WriteLine("About to instantiate");
+                    var enemy = (RigidBody)toSpawn.Instance();
+                    GetTree().Root.AddChild(enemy);
+                    Console.WriteLine("Spawn is complete, setting location");
+                    enemy.SetGlobalLocation(ps.GetGlobalLocation() + offset);
+                }
             }
         }
     }
