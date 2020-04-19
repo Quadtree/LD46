@@ -79,6 +79,16 @@ public class PlayerShip : RigidBody
             state.AddCentralForce(-state.Transform.basis.z * ThrustPower);
         }
 
+        if (Input.IsActionPressed("Strafe Left"))
+        {
+            state.AddCentralForce(state.Transform.basis.x * ThrustPower);
+        }
+
+        if (Input.IsActionPressed("Strafe Right"))
+        {
+            state.AddCentralForce(-state.Transform.basis.x * ThrustPower);
+        }
+
         if (Input.IsActionPressed("Thrust Brake"))
         {
             state.AddCentralForce(state.LinearVelocity.Normalized() * -ThrustPower);
