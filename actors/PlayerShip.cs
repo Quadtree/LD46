@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public class PlayerShip : RigidBody
 {
@@ -47,8 +48,7 @@ public class PlayerShip : RigidBody
 
     private void ChooseNextStation()
     {
-        var stations = GetTree().Root.FindChildrenByType<SpaceStation>();
-
+        var stations = GetTree().Root.FindChildrenByType<SpaceStation>().Where(it => it != NextStation).ToList();
         NextStation = stations[Util.RandInt(0, stations.Count)];
     }
 
@@ -124,6 +124,22 @@ public class PlayerShip : RigidBody
 
     public void onBodyEntered(Node body)
     {
-        Console.WriteLine($"COL {body}");
+        //Console.WriteLine($"COL {body}");
+
+        if (body == NextStation)
+        {
+            if (NextCargo != null)
+            {
+                Cargo = NextCargo;
+                NextCargo = null;
+
+                ChooseNextStation();
+            }
+            else if (Cargo != null)
+            {
+                Cargo = null;
+                // @TODO: mission completion reward
+            }
+        }
     }
 }
