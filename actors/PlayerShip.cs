@@ -17,7 +17,11 @@ public class PlayerShip : RigidBody
 
     private Vector2 OldVelocityV2;
 
-    public BaseCargo Cargo = new FragileFlatware();
+    public BaseCargo Cargo = null;
+
+    public BaseCargo NextCargo = null;
+
+    public SpaceStation NextStation = null;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -29,6 +33,23 @@ public class PlayerShip : RigidBody
     public override void _Process(float delta)
     {
         if (Cargo != null && Cargo.HP < 0) Cargo = null;
+
+        if (Cargo == null && NextCargo == null)
+        {
+            ChooseNextStation();
+
+            switch(Util.RandInt(0, 1))
+            {
+                case 0: NextCargo = new FragileFlatware(); break;
+            }
+        }
+    }
+
+    private void ChooseNextStation()
+    {
+        var stations = GetTree().Root.FindChildrenByType<SpaceStation>();
+
+        NextStation = stations[Util.RandInt(0, stations.Count)];
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState state)
