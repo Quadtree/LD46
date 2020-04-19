@@ -250,6 +250,10 @@ public class PlayerShip : RigidBody
         {
             QueueFree();
 
+            var ps = (PackedScene)GD.Load("res://particles/PlayerShipExplosion.tscn");
+
+            Util.SpawnOneShotCPUParticleSystem(ps, this, this.GetGlobalLocation());
+
             var pmh = GetTree().Root.FindChildByType<PlayerMoneyHolder>();
 
             if (pmh.Money >= MoneyToRespawn)

@@ -42,7 +42,10 @@ public class EnemyShip : RigidBody
 
         if (ps != null)
         {
-            var closestStation = GetTree().Root.FindChildrenByType<SpaceStation>().Min(it => it.GetGlobalLocation().DistanceTo(ps.GetGlobalLocation()));
+            var stations = GetTree().Root.FindChildrenByType<SpaceStation>();
+            if (stations.Count == 0) return;
+
+            var closestStation = stations.Min(it => it.GetGlobalLocation().DistanceTo(ps.GetGlobalLocation()));
 
             var fireIfInRange = false;
 
