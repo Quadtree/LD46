@@ -11,12 +11,13 @@ Different types of creatures you're transporting. And probably other cargos.
 * Asteroids
 * Stations
 * Cargoes
+* Missions
 
 # Tasks
-* Missions
 * Enemies
 * Planets
 * Title screen
+* Mission rewards, winning
 * Improved health bar UI
 * Sound effects
 * Music
