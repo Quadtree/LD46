@@ -28,5 +28,10 @@ public class ShipStatus : Label
         {
             Text = "Reconstructing...";
         }
+
+        if (true)
+        {
+            Text += $"     {Engine.GetFramesPerSecond()} FPS";
+        }
     }
 }

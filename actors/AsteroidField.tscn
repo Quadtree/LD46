@@ -5,6 +5,6 @@
 [node name="AsteroidField" type="Spatial"]
 script = ExtResource( 1 )
 BigAsteroids = 1
-MediumAsteroids = 4
-SmallAsteroids = 9
+MediumAsteroids = 3
+SmallAsteroids = 4
 FieldRadius = 40.0

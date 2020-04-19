@@ -30,7 +30,7 @@ public class EnemySpawner : Spatial
             {
                 var numEnemies = GetTree().Root.FindChildrenByType<EnemyShip>().Count;
 
-                if (numEnemies < 6)
+                if (numEnemies < 0)
                 {
                     Console.WriteLine($"Spawning enemy {EnemyTypes}");
 
