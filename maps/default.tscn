@@ -122,5 +122,4 @@ environment = SubResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = -40.0
 autoplay = true

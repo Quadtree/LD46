@@ -53,6 +53,9 @@ public class PlayerShip : RigidBody
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        CargoInvulnerableTime -= delta;
+        if (CargoInvulnerableTime > 0 && Cargo != null) Cargo.HP = 1f;
+
         if (Cargo != null && Cargo.HP < 0)
         {
             Cargo = null;
@@ -91,9 +94,6 @@ public class PlayerShip : RigidBody
 
             NextCargo.OwningNode = this;
         }
-
-        CargoInvulnerableTime -= delta;
-        if (CargoInvulnerableTime > 0 && Cargo != null) Cargo.HP = 1f;
 
         if (this.GetGlobalLocation().Length() > 3000)
         {
