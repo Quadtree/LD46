@@ -9,7 +9,7 @@ public class EnemySpawner : Spatial
     // private string b = "text";
 
     [Export]
-    List<PackedScene> EnemyTypes;
+    IList<PackedScene> EnemyTypes;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -35,6 +35,7 @@ public class EnemySpawner : Spatial
 
                 Console.WriteLine("About to instantiate");
                 var enemy = (RigidBody)toSpawn.Instance();
+                GetTree().Root.AddChild(enemy);
                 Console.WriteLine("Spawn is complete, setting location");
                 enemy.SetGlobalLocation(ps.GetGlobalLocation() + offset);
             }

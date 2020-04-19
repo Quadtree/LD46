@@ -30,13 +30,16 @@ public class EnemyShip : RigidBody
 
         if (ps != null)
         {
-            var closestStation = GetTree().Root.FindChildrenByType<SpaceStation>().Min(it => it.GetGlobalLocation().DistanceSquaredTo(ps.GetGlobalLocation()));
+            var closestStation = GetTree().Root.FindChildrenByType<SpaceStation>().Min(it => it.GetGlobalLocation().DistanceTo(ps.GetGlobalLocation()));
 
             var fireIfInRange = false;
 
-            if (closestStation < 30){
+            //Console.WriteLine($"closestStation={closestStation}");
+
+            if (closestStation < 30)
+            {
                 var posDelta = this.GetGlobalLocation() - ps.GetGlobalLocation();
-                Dest = this.GetGlobalLocation() - posDelta.Normalized() * 100;
+                Dest = this.GetGlobalLocation() + posDelta.Normalized() * 100;
             } else {
                 Dest = ps.GetGlobalLocation();
                 fireIfInRange = true;
@@ -44,7 +47,8 @@ public class EnemyShip : RigidBody
 
             var rangeToTarget = ps.GetGlobalLocation().DistanceTo(this.GetGlobalLocation());
 
-            if (fireIfInRange && rangeToTarget < 30){
+            if (fireIfInRange && rangeToTarget < 30)
+            {
                 Console.WriteLine("FIRE");
             }
         }
