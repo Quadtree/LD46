@@ -53,7 +53,11 @@ public class PlayerShip : RigidBody
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        if (Cargo != null && Cargo.HP < 0) Cargo = null;
+        if (Cargo != null && Cargo.HP < 0)
+        {
+            Cargo = null;
+            Util.SpawnOneShotSound("res://sounds/CargoDestroyed.wav", this, this.GetGlobalLocation());
+        }
 
         if (Cargo == null && NextCargo == null)
         {
@@ -89,7 +93,7 @@ public class PlayerShip : RigidBody
         }
 
         CargoInvulnerableTime -= delta;
-        if (CargoInvulnerableTime > 0) Cargo.HP = 1f;
+        if (CargoInvulnerableTime > 0 && Cargo != null) Cargo.HP = 1f;
     }
 
     private void ChooseNextStation()
@@ -230,6 +234,8 @@ public class PlayerShip : RigidBody
             }
             else if (Cargo != null)
             {
+                Util.SpawnOneShotSound("res://sounds/MissionComplete.wav", this, this.GetGlobalLocation());
+
                 var pmh = GetTree().Root.FindChildByType<PlayerMoneyHolder>();
                 pmh.Money += Cargo.Value;
 
@@ -270,6 +276,10 @@ public class PlayerShip : RigidBody
                 GetTree().ClearAndChangeScene("res://maps/LoseScreen.tscn");
             }
 
+            Util.SpawnOneShotSound("res://sounds/ShipDestroyed.wav", this, this.GetGlobalLocation());
+
+        } else {
+            Util.SpawnOneShotSound("res://sounds/ShipDamaged.wav", this, this.GetGlobalLocation());
         }
     }
 }

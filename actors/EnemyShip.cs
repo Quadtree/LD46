@@ -76,6 +76,8 @@ public class EnemyShip : RigidBody
                     proj.SetGlobalLocation(this.GetGlobalLocation());
                     proj.LookAt(targetWithPrediction, Vector3.Up);
                     proj.LinearVelocity = -proj.Transform.basis.z * 50;
+
+                    Util.SpawnOneShotSound("res://sounds/EnemyShoot.wav", this, this.GetGlobalLocation());
                 }
             }
 
