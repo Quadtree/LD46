@@ -20,10 +20,11 @@ Different types of creatures you're transporting. And probably other cargos.
   * Red shooty triangles
   * Grey ramships
 * Title screen
-
-# Tasks
 * Mission rewards, winning
 * Respawn costs, losing
+
+# Tasks
+* Strafing
 * Improved health bar UI
 * Sound effects
 * Music
