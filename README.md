@@ -22,9 +22,10 @@ Different types of creatures you're transporting. And probably other cargos.
 * Title screen
 * Mission rewards, winning
 * Respawn costs, losing
+* Strafing
 
 # Tasks
-* Strafing
+* Actual map layout
 * Improved health bar UI
 * Sound effects
 * Music
