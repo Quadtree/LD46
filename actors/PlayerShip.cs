@@ -66,7 +66,7 @@ public class PlayerShip : RigidBody
                 n = Util.RandInt(0, 6);
             }
 
-            n = Util.RandInt(0, 8);
+            //n = Util.RandInt(0, 8);
 
             switch(n)
             {
@@ -90,7 +90,10 @@ public class PlayerShip : RigidBody
     private void ChooseNextStation()
     {
         var stations = GetTree().Root.FindChildrenByType<SpaceStation>().Where(it => it != NextStation).ToList();
-        NextStation = stations[Util.RandInt(0, stations.Count)];
+        if (stations.Count > 0)
+            NextStation = stations[Util.RandInt(0, stations.Count)];
+        else
+            NextStation = null;
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState state)
