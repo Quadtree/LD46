@@ -18,9 +18,10 @@ offsets = PoolRealArray( 0, 0.264901, 1 )
 colors = PoolColorArray( 0.804688, 0.830627, 1, 1, 0.34375, 0.430909, 1, 1, 0.239216, 0.215686, 1, 0 )
 
 [node name="PlayerShipExplosion" type="CPUParticles"]
+emitting = false
 amount = 300
+one_shot = true
 explosiveness = 1.0
-local_coords = false
 mesh = SubResource( 2 )
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
