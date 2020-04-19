@@ -20,6 +20,7 @@ TurnRate = 6.0
 ThrustPower = 14.0
 RespawnerType = ExtResource( 3 )
 MoneyToWin = 5000
+EngineFlare = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

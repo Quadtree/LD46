@@ -42,6 +42,8 @@ public class PlayerShip : RigidBody
     [Export]
     public PackedScene EngineFlare;
 
+    public CPUParticles MainEF;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -117,7 +119,9 @@ public class PlayerShip : RigidBody
         if (Input.IsActionPressed("Thrust Forward"))
         {
             state.AddCentralForce(-state.Transform.basis.z * ThrustPower);
+            this.FindChildByName<CPUParticles>("MainEF").Emitting = true;
         } else {
+            this.FindChildByName<CPUParticles>("MainEF").Emitting = false;
         }
 
         if (Input.IsActionPressed("Strafe Left"))
