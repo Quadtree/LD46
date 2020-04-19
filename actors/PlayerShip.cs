@@ -15,6 +15,10 @@ public class PlayerShip : RigidBody
 
     int CurrentTurn;
 
+    private Vector2 OldVelocityV2;
+
+    public BaseCargo Cargo = new FragileFlatware();
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -83,5 +87,16 @@ public class PlayerShip : RigidBody
             if (angleToWantedAngle > 5.8f * delta) CurrentTurn = 1;
             if (angleToWantedAngle < -5.8f * delta) CurrentTurn = -1;
         }
+
+        var newVelocityV2 = new Vector2(LinearVelocity.x, LinearVelocity.z);
+
+        if (OldVelocityV2 != null)
+        {
+            var change = newVelocityV2.DistanceTo(OldVelocityV2) / delta;
+
+            Cargo.ChangeInVelocity(change);
+        }
+
+        OldVelocityV2 = newVelocityV2;
     }
 }
