@@ -29,9 +29,9 @@ public class ShipStatus : Label
             Text = "Reconstructing...";
         }
 
-        if (true)
+        if (OS.IsDebugBuild())
         {
-            Text += $"     {Engine.GetFramesPerSecond()} FPS";
+            Text += $"     {Engine.GetFramesPerSecond()} FPS      {GetTree().Root.GetChildren().Count} Nodes";
         }
     }
 }
