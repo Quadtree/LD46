@@ -27,9 +27,9 @@ Different types of creatures you're transporting. And probably other cargos.
 * Make key commands not dismiss modals
 * Cargo descriptions
 * More cargo types
+* Proper materials for stations and asteroids
 
 # Tasks
-* Proper materials for stations and asteroids
 * Improved health bar UI
 * Sound effects
 * Music

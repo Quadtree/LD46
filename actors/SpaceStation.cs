@@ -7,17 +7,22 @@ public class SpaceStation : KinematicBody
     // private int a = 2;
     // private string b = "text";
 
+    [Export]
+    Material MaterialOverride;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-
+        CallDeferred(nameof(SetMaterials));
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//
-//  }
+    public void SetMaterials()
+    {
+        foreach (var mi in this.FindChildrenByType<MeshInstance>())
+        {
+            mi.MaterialOverride = MaterialOverride;
+        }
+    }
 
     public override void _PhysicsProcess(float delta)
     {
