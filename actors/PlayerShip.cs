@@ -69,14 +69,14 @@ public class PlayerShip : RigidBody
         {
             ChooseNextStation();
 
-            int n = Util.RandInt(0, 2);
+            int n = Util.RandInt(0, 3);
 
             int money = GetTree().Root.FindChildByType<PlayerMoneyHolder>().Money;
 
-            if (money > 3000){
-                n = Util.RandInt(0, 8);
+            if (money > 2200){
+                n = Util.RandInt(3, 8);
             } else if (money > 1000){
-                n = Util.RandInt(0, 6);
+                n = Util.RandInt(1, 6);
             }
 
             //n = Util.RandInt(0, 8);
@@ -85,8 +85,8 @@ public class PlayerShip : RigidBody
             {
                 case 0: NextCargo = new BoringCrate(); break;
                 case 1: NextCargo = new FragileFlatware(); break;
-
                 case 2: NextCargo = new FreshMeat(); break;
+
                 case 3: NextCargo = new ShapableGoo(); break;
                 case 4: NextCargo = new SpeedRat(); break;
                 case 5: NextCargo = new UnstableSoufle(); break;
