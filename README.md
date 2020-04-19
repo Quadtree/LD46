@@ -30,6 +30,7 @@ Different types of creatures you're transporting. And probably other cargos.
 * Proper materials for stations and asteroids
 
 # Tasks
-* Improved health bar UI
+* Particle trails
 * Sound effects
 * Music
+* Improved health bar UI
