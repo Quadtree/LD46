@@ -16,11 +16,11 @@ Different types of creatures you're transporting. And probably other cargos.
 * Cargoes
 * Missions
 * Planets
-
-# Tasks
 * Enemies
   * Red shooty triangles
   * Grey ramships
+
+# Tasks
 * Title screen
 * Mission rewards, winning
 * Respawn costs, losing
