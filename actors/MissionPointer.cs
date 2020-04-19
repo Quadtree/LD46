@@ -24,7 +24,7 @@ public class MissionPointer : Spatial
 
             var dist = ps.GetGlobalLocation().DistanceTo(ps.NextStation.GetGlobalLocation());
 
-            if (dist > 20)
+            if (dist > 25)
             {
                 var posDelta = (ps.NextStation.GetGlobalLocation() - ps.GetGlobalLocation()).Normalized();
                 this.SetGlobalLocation(ps.GetGlobalLocation() + posDelta * 20);

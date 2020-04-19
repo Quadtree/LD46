@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://meshes/player_ship.glb" type="PackedScene" id=1]
+[ext_resource path="res://meshes/mission_pointer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/MissionPointer.cs" type="Script" id=2]
 
 [node name="MissionPointer" type="Spatial"]
