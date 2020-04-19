@@ -12,25 +12,26 @@ __meta__ = {
 }
 
 [node name="CargoStatus" type="Label" parent="."]
-margin_left = 20.0
-margin_top = 14.0
-margin_right = 353.0
-margin_bottom = 40.0
+margin_left = 24.0
+margin_top = 56.0
+margin_right = 272.0
+margin_bottom = 339.0
+autowrap = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MissionStatus" type="Label" parent="."]
-margin_left = 20.0
-margin_top = 50.0
-margin_right = 729.0
-margin_bottom = 79.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 384.0
+margin_bottom = 48.0
 script = ExtResource( 2 )
 
 [node name="ShipStatus" type="Label" parent="."]
-margin_left = 20.0
-margin_top = 89.0
-margin_right = 526.0
-margin_bottom = 112.0
+margin_left = 448.0
+margin_top = 24.0
+margin_right = 795.0
+margin_bottom = 47.0
 script = ExtResource( 3 )

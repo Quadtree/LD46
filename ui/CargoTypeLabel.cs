@@ -24,6 +24,13 @@ public class CargoTypeLabel : Label
                 Text = $"Current Cargo: {ps.Cargo.Name} ({(int)(ps.Cargo.HP * 100)}%)";
             else
                 Text = "Current Cargo: None";
+
+            if (ps.Cargo != null || ps.NextCargo != null)
+            {
+                var cg = ps.Cargo != null ? ps.Cargo : ps.NextCargo;
+
+                Text += "\n\n" + cg.Description;
+            }
         }
     }
 }

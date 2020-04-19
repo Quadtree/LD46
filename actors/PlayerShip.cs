@@ -27,6 +27,8 @@ public class PlayerShip : RigidBody
 
     public SpaceStation NextStation = null;
 
+    public float CargoInvulnerableTime = 0;
+
     public float HP = 1f;
 
     // Called when the node enters the scene tree for the first time.
@@ -49,6 +51,9 @@ public class PlayerShip : RigidBody
                 case 0: NextCargo = new FragileFlatware(); break;
             }
         }
+
+        CargoInvulnerableTime -= delta;
+        if (CargoInvulnerableTime > 0) Cargo.HP = 1f;
     }
 
     private void ChooseNextStation()
@@ -147,6 +152,8 @@ public class PlayerShip : RigidBody
             {
                 Cargo = NextCargo;
                 NextCargo = null;
+
+                CargoInvulnerableTime = 0.25f;
 
                 ChooseNextStation();
             }

@@ -7,6 +7,7 @@ public class TitleScreen : Control
     // private int a = 2;
     // private string b = "text";
 
+    [Export]
     float NoInputTime = 1f;
 
     // Called when the node enters the scene tree for the first time.

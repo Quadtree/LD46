@@ -103,3 +103,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 160.124, 0, 59.1765 )
 
 [node name="AsteroidField10" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.991, 0, 155.85 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.545985, 0.51849, -0.658079, -0.571952, 0.804643, 0.159437, 0.612186, 0.28934, 0.735875, 0, 0, 0 )
