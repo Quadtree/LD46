@@ -27,6 +27,8 @@ Different types of creatures you're transporting. And probably other cargos.
 
 # Tasks
 * More cargo types
+* Cargo descriptions
+* Proper materials for stations and asteroids
 * Improved health bar UI
 * Sound effects
 * Music
