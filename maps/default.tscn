@@ -71,7 +71,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.748, 0, 3.528 )
 [node name="InGameUI" parent="." instance=ExtResource( 7 )]
 
 [node name="SpaceStation2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 150 )
 
 [node name="MissionPointer" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
