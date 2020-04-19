@@ -94,6 +94,11 @@ public class PlayerShip : RigidBody
 
         CargoInvulnerableTime -= delta;
         if (CargoInvulnerableTime > 0 && Cargo != null) Cargo.HP = 1f;
+
+        if ((this.GetGlobalLocation() + LinearVelocity * 10).Length() > 3000)
+        {
+            this.SetGlobalLocation(-this.GetGlobalLocation());
+        }
     }
 
     private void ChooseNextStation()

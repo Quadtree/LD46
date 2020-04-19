@@ -32,5 +32,6 @@ Different types of creatures you're transporting. And probably other cargos.
 * Sound effects
 
 # Tasks
+* Prevent leaving game area
 * Music
 * Improved health bar UI
