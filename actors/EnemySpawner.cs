@@ -31,7 +31,7 @@ public class EnemySpawner : Spatial
                 var toSpawn = EnemyTypes[Util.RandInt(0, EnemyTypes.Count)];
 
                 Console.WriteLine("Determining offset");
-                var offset = new Vector3(Util.random() - 0.5f, 0, Util.random() - 0.5f).Normalized() * 60;
+                var offset = new Vector3(Util.random() - 0.5f, 0, Util.random() - 0.5f).Normalized() * 80;
 
                 Console.WriteLine("About to instantiate");
                 var enemy = (RigidBody)toSpawn.Instance();

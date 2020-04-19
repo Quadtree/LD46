@@ -51,6 +51,11 @@ public class EnemyShip : RigidBody
             {
                 Console.WriteLine("FIRE");
             }
+
+            if (rangeToTarget > 200)
+            {
+                QueueFree();
+            }
         }
     }
 
