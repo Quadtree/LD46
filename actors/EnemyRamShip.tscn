@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://actors/EnemyShip.cs" type="Script" id=1]
 [ext_resource path="res://meshes/ram_ship.glb" type="PackedScene" id=2]
 [ext_resource path="res://actors/EnemyProjectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://components/EnemyEngineFlare.tscn" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.3, 1, 2.5 )
@@ -26,3 +27,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.05995 )
 shape = SubResource( 1 )
 
 [node name="ram_ship" parent="." instance=ExtResource( 2 )]
+
+[node name="MainEF" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, 1, 1.62921e-07, 0, -1.62921e-07, 1, 1, 1.62921e-07, 2.65431e-14, 0, 0, 2.39843 )
+emitting = false

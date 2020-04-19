@@ -28,4 +28,13 @@ shape = SubResource( 1 )
 [node name="player_ship" parent="." instance=ExtResource( 1 )]
 
 [node name="MainEF" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.62921e-07, 1, 1.62921e-07, 0, -1.62921e-07, 1, 1, 1.62921e-07, 2.65431e-14, 0, 0, 0 )
+transform = Transform( -1.62921e-07, 1, 1.62921e-07, 0, -1.62921e-07, 1, 1, 1.62921e-07, 2.65431e-14, 0, 0, 0.632628 )
+emitting = false
+
+[node name="LeftEF" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 3.25841e-07, 5.30863e-14, 0, -1.62921e-07, 1, 3.25841e-07, 1, 1.62921e-07, 0, 0, 0 )
+emitting = false
+
+[node name="RightEF" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+emitting = false
