@@ -14,6 +14,9 @@ public class PlayerShip : RigidBody
     [Export]
     public float ThrustPower = 8f;
 
+    [Export]
+    public PackedScene RespawnerType;
+
     int CurrentTurn;
 
     private Vector2 OldVelocityV2;
@@ -23,6 +26,8 @@ public class PlayerShip : RigidBody
     public BaseCargo NextCargo = null;
 
     public SpaceStation NextStation = null;
+
+    public float HP = 1f;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -146,5 +151,13 @@ public class PlayerShip : RigidBody
     public void TakeDamage(float damage)
     {
         Console.WriteLine($"Player took {damage} damage");
+        HP -= damage;
+
+        if (HP <= 0)
+        {
+            QueueFree();
+
+            GetTree().Root.AddChild(RespawnerType.Instance());
+        }
     }
 }

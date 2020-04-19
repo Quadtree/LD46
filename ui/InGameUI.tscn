@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui/CargoTypeLabel.cs" type="Script" id=1]
 [ext_resource path="res://ui/MissionStatus.cs" type="Script" id=2]
+[ext_resource path="res://ui/ShipStatus.cs" type="Script" id=3]
 
 [node name="InGameUI" type="Control"]
 anchor_right = 1.0
@@ -26,3 +27,10 @@ margin_top = 50.0
 margin_right = 729.0
 margin_bottom = 79.0
 script = ExtResource( 2 )
+
+[node name="ShipStatus" type="Label" parent="."]
+margin_left = 20.0
+margin_top = 89.0
+margin_right = 526.0
+margin_bottom = 112.0
+script = ExtResource( 3 )
