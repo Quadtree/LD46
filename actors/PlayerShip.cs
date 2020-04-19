@@ -142,4 +142,9 @@ public class PlayerShip : RigidBody
             }
         }
     }
+
+    public void TakeDamage(float damage)
+    {
+        Console.WriteLine($"Player took {damage} damage");
+    }
 }

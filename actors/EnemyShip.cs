@@ -18,6 +18,11 @@ public class EnemyShip : RigidBody
 
     Vector3 Dest;
 
+    float FireCharge;
+
+    [Export]
+    PackedScene ProjectileType;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -26,6 +31,8 @@ public class EnemyShip : RigidBody
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        FireCharge += delta;
+
         var ps = GetTree().Root.FindChildByType<PlayerShip>();
 
         if (ps != null)
@@ -50,6 +57,15 @@ public class EnemyShip : RigidBody
             if (fireIfInRange && rangeToTarget < 30)
             {
                 Console.WriteLine("FIRE");
+
+                if (FireCharge > 0.25f)
+                {
+                    FireCharge = 0;
+                    var proj = (EnemyProjectile)ProjectileType.Instance();
+                    GetTree().Root.AddChild(proj);
+                    proj.Transform = Transform;
+                    proj.LinearVelocity = -proj.Transform.basis.z * 50;
+                }
             }
 
             if (rangeToTarget > 200)
