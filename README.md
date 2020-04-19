@@ -23,9 +23,10 @@ Different types of creatures you're transporting. And probably other cargos.
 * Mission rewards, winning
 * Respawn costs, losing
 * Strafing
+* Actual map layout
 
 # Tasks
-* Actual map layout
+* More cargo types
 * Improved health bar UI
 * Sound effects
 * Music

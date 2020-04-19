@@ -18,9 +18,11 @@ public class ShipStatus : Label
     {
         var ps = GetTree().Root.FindChildByType<PlayerShip>();
 
+        var pmh = GetTree().Root.FindChildByType<PlayerMoneyHolder>();
+
         if (ps != null)
         {
-            Text = $"{(int)(ps.HP * 100)}%";
+            Text = $"{(int)(ps.HP * 100)}%    ${pmh.Money}";
         }
         else
         {

@@ -4,7 +4,7 @@
 [ext_resource path="res://textures/starfield.png" type="Texture" id=2]
 [ext_resource path="res://actors/ChaseCamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textures/noise.png" type="Texture" id=4]
-[ext_resource path="res://actors/Asteroid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/AsteroidField.tscn" type="PackedScene" id=5]
 [ext_resource path="res://actors/SpaceStation.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/InGameUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/MissionPointer.tscn" type="PackedScene" id=8]
@@ -55,25 +55,16 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 shape = SubResource( 5 )
 
-[node name="Asteroid" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.211, 0, -0.018 )
-
-[node name="Asteroid2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16, 0, 4.429 )
-
-[node name="Asteroid3" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17, 0, -0.217 )
-
-[node name="Asteroid4" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.292, 0, -3.922 )
-
-[node name="SpaceStation" parent="." instance=ExtResource( 6 )]
+[node name="Space Doughnuts" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.748, 0, 3.528 )
+
+[node name="Intergalactic Steakhouse" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -200 )
 
 [node name="InGameUI" parent="." instance=ExtResource( 7 )]
 
-[node name="SpaceStation2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 150 )
+[node name="Astro Bar & Grill" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 200 )
 
 [node name="MissionPointer" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
@@ -82,3 +73,33 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9539, 23.395, 32.8663 )
 
 [node name="PlayerMoneyHolder" parent="." instance=ExtResource( 10 )]
+
+[node name="AsteroidField" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53183, 0, 5.1034 )
+
+[node name="AsteroidField2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8726, 0, -34.1098 )
+
+[node name="AsteroidField3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4191, 0, -35.7696 )
+
+[node name="AsteroidField4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.6378, 0, -39.3261 )
+
+[node name="AsteroidField5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.0452, 0, -40.8634 )
+
+[node name="AsteroidField6" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 121.133, 0, -148.219 )
+
+[node name="AsteroidField7" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.169, 0, -11.0997 )
+
+[node name="AsteroidField8" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128.939, 0, 27.3058 )
+
+[node name="AsteroidField9" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 160.124, 0, 59.1765 )
+
+[node name="AsteroidField10" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 144.991, 0, 155.85 )

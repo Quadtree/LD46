@@ -81,12 +81,12 @@ public class PlayerShip : RigidBody
 
         if (Input.IsActionPressed("Strafe Left"))
         {
-            state.AddCentralForce(state.Transform.basis.x * ThrustPower);
+            state.AddCentralForce(-state.Transform.basis.x * ThrustPower);
         }
 
         if (Input.IsActionPressed("Strafe Right"))
         {
-            state.AddCentralForce(-state.Transform.basis.x * ThrustPower);
+            state.AddCentralForce(state.Transform.basis.x * ThrustPower);
         }
 
         if (Input.IsActionPressed("Thrust Brake"))
@@ -174,7 +174,7 @@ public class PlayerShip : RigidBody
         {
             QueueFree();
 
-            var pmh = this.FindChildByType<PlayerMoneyHolder>();
+            var pmh = GetTree().Root.FindChildByType<PlayerMoneyHolder>();
 
             if (pmh.Money >= 500)
             {

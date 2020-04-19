@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://actors/AsteroidField.cs" type="Script" id=1]
+
+[node name="AsteroidField" type="Spatial"]
+script = ExtResource( 1 )
+BigAsteroids = 1
+MediumAsteroids = 4
+SmallAsteroids = 9
+FieldRadius = 40.0
