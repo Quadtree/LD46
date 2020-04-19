@@ -56,6 +56,9 @@ public class PlayerShip : RigidBody
         CargoInvulnerableTime -= delta;
         if (CargoInvulnerableTime > 0 && Cargo != null) Cargo.HP = 1f;
 
+        this.FindChildByName<MeshInstance>("Crate").Visible = Cargo != null;
+        Mass = Cargo != null ? 2 : 1;
+
         if (Cargo != null && Cargo.HP < 0)
         {
             Cargo = null;

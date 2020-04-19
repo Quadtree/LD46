@@ -33,6 +33,7 @@ Different types of creatures you're transporting. And probably other cargos.
 * Prevent leaving game area
 * Music
 * Improved health bar UI
+* Add in roof crate
 
 # Tasks
 * Get music to loop
