@@ -11,7 +11,7 @@ public class UnstableSoufle : BaseCargo
 
     public override void ChangeInVelocity(float amountPerSecond)
     {
-        if (amountPerSecond > 50 && Util.random() < 0.05f)
+        if (amountPerSecond > 50 && Util.random() < 0.2f)
         {
             HP -= 1000;
         }
