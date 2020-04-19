@@ -24,11 +24,11 @@ Different types of creatures you're transporting. And probably other cargos.
 * Respawn costs, losing
 * Strafing
 * Actual map layout
+* Make key commands not dismiss modals
 
 # Tasks
-* Make key commands not dismiss modals
-* More cargo types
 * Cargo descriptions
+* More cargo types
 * Proper materials for stations and asteroids
 * Improved health bar UI
 * Sound effects
