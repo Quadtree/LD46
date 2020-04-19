@@ -15,12 +15,15 @@ Different types of creatures you're transporting. And probably other cargos.
 * Stations
 * Cargoes
 * Missions
+* Planets
 
 # Tasks
 * Enemies
-* Planets
+  * Red shooty triangles
+  * Grey ramships
 * Title screen
 * Mission rewards, winning
+* Respawn costs, losing
 * Improved health bar UI
 * Sound effects
 * Music
