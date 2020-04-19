@@ -12,7 +12,7 @@
 [ext_resource path="res://actors/PlayerMoneyHolder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://meshes/StationMaterial2.material" type="Material" id=11]
 [ext_resource path="res://meshes/StationMaterial3.material" type="Material" id=12]
-[ext_resource path="res://sounds/bgm.ogg" type="AudioStream" id=13]
+[ext_resource path="res://sounds/bgm.wav" type="AudioStream" id=13]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -122,4 +122,5 @@ environment = SubResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = -40.0
 autoplay = true
