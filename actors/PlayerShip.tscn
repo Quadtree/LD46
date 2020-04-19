@@ -7,6 +7,8 @@
 
 [node name="PlayerShip" type="RigidBody"]
 gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true

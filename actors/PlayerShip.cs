@@ -26,7 +26,7 @@ public class PlayerShip : RigidBody
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-
+        Connect("body_entered", this, nameof(onBodyEntered));
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -120,5 +120,10 @@ public class PlayerShip : RigidBody
         }
 
         OldVelocityV2 = newVelocityV2;
+    }
+
+    public void onBodyEntered(Node body)
+    {
+        Console.WriteLine($"COL {body}");
     }
 }
