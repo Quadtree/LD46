@@ -16,6 +16,7 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource( 1 )
+ThrustPower = 20.0
 ProjectileType = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

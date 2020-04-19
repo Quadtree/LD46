@@ -17,6 +17,12 @@ public class PlayerShip : RigidBody
     [Export]
     public PackedScene RespawnerType;
 
+    [Export]
+    public int MoneyToRespawn = 500;
+
+    [Export]
+    public int MoneyToWin = 1000;
+
     int CurrentTurn;
 
     private Vector2 OldVelocityV2;
@@ -30,6 +36,10 @@ public class PlayerShip : RigidBody
     public float CargoInvulnerableTime = 0;
 
     public float HP = 1f;
+
+    public Vector3 OldZBasis = Vector3.Forward;
+
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -46,9 +56,30 @@ public class PlayerShip : RigidBody
         {
             ChooseNextStation();
 
-            switch(Util.RandInt(0, 1))
+            int n = Util.RandInt(0, 2);
+
+            int money = GetTree().Root.FindChildByType<PlayerMoneyHolder>().Money;
+
+            if (money > 3000){
+                n = Util.RandInt(0, 8);
+            } else if (money > 1000){
+                n = Util.RandInt(0, 6);
+            }
+
+            n = Util.RandInt(0, 8);
+
+            switch(n)
             {
-                case 0: NextCargo = new FragileFlatware(); break;
+                case 0: NextCargo = new BoringCrate(); break;
+                case 1: NextCargo = new FragileFlatware(); break;
+
+                case 2: NextCargo = new FreshMeat(); break;
+                case 3: NextCargo = new ShapableGoo(); break;
+                case 4: NextCargo = new SpeedRat(); break;
+                case 5: NextCargo = new UnstableSoufle(); break;
+
+                case 6: NextCargo = new FearfulFerret(); break;
+                case 7: NextCargo = new DizzyDoormouse(); break;
             }
         }
 
@@ -139,6 +170,17 @@ public class PlayerShip : RigidBody
                 Cargo.ChangeInVelocity(change);
         }
 
+        if (Cargo != null)
+        {
+            Cargo.Update(LinearVelocity.Length(), delta);
+
+            float amountTurned = Transform.basis.z.AngleTo(OldZBasis);
+
+            Cargo.Turned(amountTurned);
+
+            OldZBasis = Transform.basis.z;
+        }
+
         OldVelocityV2 = newVelocityV2;
     }
 
@@ -162,7 +204,7 @@ public class PlayerShip : RigidBody
                 var pmh = GetTree().Root.FindChildByType<PlayerMoneyHolder>();
                 pmh.Money += Cargo.Value;
 
-                if (pmh.Money >= 1000)
+                if (pmh.Money >= MoneyToWin)
                 {
                     GetTree().ClearAndChangeScene("res://maps/WinScreen.tscn");
                 }
@@ -177,14 +219,17 @@ public class PlayerShip : RigidBody
         Console.WriteLine($"Player took {damage} damage");
         HP -= damage;
 
-        if (HP <= 0)
+        if (Cargo != null) Cargo.ShipTookDamage(damage);
+
+        if (HP <= 0.01f)
         {
             QueueFree();
 
             var pmh = GetTree().Root.FindChildByType<PlayerMoneyHolder>();
 
-            if (pmh.Money >= 500)
+            if (pmh.Money >= MoneyToRespawn)
             {
+                pmh.Money -= MoneyToRespawn;
                 GetTree().Root.AddChild(RespawnerType.Instance());
             }
             else

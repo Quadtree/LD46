@@ -16,4 +16,19 @@ public class BaseCargo
         if (amountPerSecond > 30)
             Console.WriteLine($"amountPerSecond={amountPerSecond}");
     }
+
+    public virtual void Update(float speed, float delta)
+    {
+
+    }
+
+    public virtual void Turned(float amount)
+    {
+
+    }
+
+    public virtual void ShipTookDamage(float amount)
+    {
+
+    }
 }

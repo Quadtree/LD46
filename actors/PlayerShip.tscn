@@ -18,6 +18,7 @@ script = ExtResource( 2 )
 TurnRate = 6.0
 ThrustPower = 14.0
 RespawnerType = ExtResource( 3 )
+MoneyToWin = 5000
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
