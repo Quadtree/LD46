@@ -7,6 +7,8 @@ public class BaseCargo
 
     public virtual string Name { get { return "???"; }}
 
+    public virtual int Value { get { return 0; }}
+
     public virtual void ChangeInVelocity(float amountPerSecond)
     {
         if (amountPerSecond > 30)

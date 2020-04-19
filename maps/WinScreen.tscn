@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/LargeFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://maps/TitleScreen.cs" type="Script" id=2]
+[ext_resource path="res://ui/MediumFont.tres" type="DynamicFont" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 132.0
+margin_bottom = -794.68
+custom_fonts/font = ExtResource( 1 )
+text = "Victory!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -662.0
+margin_bottom = -532.0
+custom_fonts/font = ExtResource( 3 )
+text = "Space Station Express has made enough money that you can finally hire somebody else to fly these risky missions!
+Click anywhere or press a key to play again."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

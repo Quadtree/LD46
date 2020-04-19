@@ -142,8 +142,15 @@ public class PlayerShip : RigidBody
             }
             else if (Cargo != null)
             {
+                var pmh = GetTree().Root.FindChildByType<PlayerMoneyHolder>();
+                pmh.Money += Cargo.Value;
+
+                if (pmh.Money >= 1000)
+                {
+                    GetTree().ClearAndChangeScene("res://maps/WinScreen.tscn");
+                }
+
                 Cargo = null;
-                // @TODO: mission completion reward
             }
         }
     }
@@ -157,7 +164,17 @@ public class PlayerShip : RigidBody
         {
             QueueFree();
 
-            GetTree().Root.AddChild(RespawnerType.Instance());
+            var pmh = this.FindChildByType<PlayerMoneyHolder>();
+
+            if (pmh.Money >= 500)
+            {
+                GetTree().Root.AddChild(RespawnerType.Instance());
+            }
+            else
+            {
+                GetTree().ClearAndChangeScene("res://maps/LoseScreen.tscn");
+            }
+
         }
     }
 }
