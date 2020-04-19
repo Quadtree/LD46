@@ -116,6 +116,10 @@ public class PlayerShip : RigidBody
         if (Input.IsActionPressed("Thrust Forward"))
         {
             state.AddCentralForce(-state.Transform.basis.z * ThrustPower);
+
+            this.FindChildByName<CPUParticles>("MainEF").Emitting = true;
+        } else {
+            this.FindChildByName<CPUParticles>("MainEF").Emitting = false;
         }
 
         if (Input.IsActionPressed("Strafe Left"))
