@@ -34,6 +34,6 @@ Different types of creatures you're transporting. And probably other cargos.
 * Music
 * Improved health bar UI
 * Add in roof crate
+* Get music to loop
 
 # Tasks
-* Get music to loop
