@@ -28,7 +28,7 @@ public class PlayerShip : RigidBody
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-
+        if (Cargo.HP < 0) Cargo = null;
     }
 
     public override void _IntegrateForces(PhysicsDirectBodyState state)
@@ -94,7 +94,8 @@ public class PlayerShip : RigidBody
         {
             var change = newVelocityV2.DistanceTo(OldVelocityV2) / delta;
 
-            Cargo.ChangeInVelocity(change);
+            if (Cargo != null)
+                Cargo.ChangeInVelocity(change);
         }
 
         OldVelocityV2 = newVelocityV2;

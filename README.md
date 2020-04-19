@@ -10,11 +10,13 @@ Different types of creatures you're transporting. And probably other cargos.
 * Fix new orientation issue
 * Asteroids
 * Stations
+* Cargoes
 
 # Tasks
-* Cargoes
+* Missions
 * Enemies
 * Planets
 * Title screen
+* Improved health bar UI
 * Sound effects
 * Music
