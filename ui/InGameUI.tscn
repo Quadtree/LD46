@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/CargoTypeLabel.cs" type="Script" id=1]
 [ext_resource path="res://ui/MissionStatus.cs" type="Script" id=2]
 [ext_resource path="res://ui/ShipStatus.cs" type="Script" id=3]
+[ext_resource path="res://ui/MediumFont.tres" type="DynamicFont" id=4]
 
 [node name="InGameUI" type="Control"]
 anchor_right = 1.0
@@ -13,9 +14,10 @@ __meta__ = {
 
 [node name="CargoStatus" type="Label" parent="."]
 margin_left = 24.0
-margin_top = 56.0
-margin_right = 272.0
-margin_bottom = 339.0
+margin_top = 88.0
+margin_right = 488.0
+margin_bottom = 371.0
+custom_fonts/font = ExtResource( 4 )
 autowrap = true
 script = ExtResource( 1 )
 __meta__ = {
@@ -27,11 +29,13 @@ margin_left = 24.0
 margin_top = 24.0
 margin_right = 384.0
 margin_bottom = 48.0
+custom_fonts/font = ExtResource( 4 )
 script = ExtResource( 2 )
 
 [node name="ShipStatus" type="Label" parent="."]
-margin_left = 448.0
+margin_left = 704.0
 margin_top = 24.0
-margin_right = 795.0
-margin_bottom = 47.0
+margin_right = 1051.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 4 )
 script = ExtResource( 3 )
