@@ -25,6 +25,8 @@ public class EnemyShip : RigidBody
 
     float FireCharge;
 
+    float tickCharge = Util.random() * 0.2f;
+
     [Export]
     PackedScene ProjectileType;
 
@@ -37,6 +39,10 @@ public class EnemyShip : RigidBody
     public override void _Process(float delta)
     {
         FireCharge += delta;
+        tickCharge += delta;
+
+        if (tickCharge <= 0.2f) return;
+        tickCharge = 0;
 
         var ps = GetTree().Root.FindChildByType<PlayerShip>();
 

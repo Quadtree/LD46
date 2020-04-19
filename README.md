@@ -35,3 +35,4 @@ Different types of creatures you're transporting. And probably other cargos.
 * Improved health bar UI
 
 # Tasks
+* Get music to loop
