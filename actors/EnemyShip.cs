@@ -14,7 +14,12 @@ public class EnemyShip : RigidBody
     [Export]
     public float ThrustPower = 8f;
 
+    [Export]
+    bool IsRamShip = false;
+
     int CurrentTurn;
+
+    int thrust = 0;
 
     Vector3 Dest;
 
@@ -43,18 +48,20 @@ public class EnemyShip : RigidBody
 
             //Console.WriteLine($"closestStation={closestStation}");
 
+            var rangeToTarget = ps.GetGlobalLocation().DistanceTo(this.GetGlobalLocation());
+
+            var targetWithPrediction = ps.GetGlobalLocation() + ps.LinearVelocity * (rangeToTarget / 50);
+
             if (closestStation < 30)
             {
                 var posDelta = this.GetGlobalLocation() - ps.GetGlobalLocation();
                 Dest = this.GetGlobalLocation() + posDelta.Normalized() * 100;
             } else {
-                Dest = ps.GetGlobalLocation();
+                Dest = targetWithPrediction;
                 fireIfInRange = true;
             }
 
-            var rangeToTarget = ps.GetGlobalLocation().DistanceTo(this.GetGlobalLocation());
-
-            if (fireIfInRange && rangeToTarget < 30)
+            if (fireIfInRange && rangeToTarget < 30 && !IsRamShip)
             {
                 Console.WriteLine("FIRE");
 
@@ -64,9 +71,18 @@ public class EnemyShip : RigidBody
                     var proj = (EnemyProjectile)ProjectileType.Instance();
                     GetTree().Root.AddChild(proj);
                     proj.SetGlobalLocation(this.GetGlobalLocation());
-                    proj.LookAt(ps.GetGlobalLocation() + ps.LinearVelocity * (rangeToTarget / 50), Vector3.Up);
+                    proj.LookAt(targetWithPrediction, Vector3.Up);
                     proj.LinearVelocity = -proj.Transform.basis.z * 50;
                 }
+            }
+
+            var likelyArrivalLocation = LinearVelocity.Normalized() * rangeToTarget + this.GetGlobalLocation();
+
+            if (likelyArrivalLocation.DistanceTo(Dest) < 15 || LinearVelocity.Length() < 5 || !fireIfInRange)
+            {
+                thrust = 1;
+            } else {
+                thrust = -1;
             }
 
             if (rangeToTarget > 200)
@@ -93,15 +109,15 @@ public class EnemyShip : RigidBody
             state.AngularVelocity = new Vector3(0,0,0);
         }
 
-        if (true)
+        if (thrust == 1)
         {
             state.AddCentralForce(-state.Transform.basis.z * ThrustPower);
         }
 
-        /*if (Input.IsActionPressed("Thrust Brake"))
+        if (thrust == -1)
         {
             state.AddCentralForce(state.LinearVelocity.Normalized() * -ThrustPower);
-        }*/
+        }
     }
 
     public override void _PhysicsProcess(float delta)
