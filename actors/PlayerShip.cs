@@ -102,6 +102,13 @@ public class PlayerShip : RigidBody
         {
             this.SetGlobalLocation(this.GetGlobalLocation() * -0.8f);
         }
+
+        if (Input.IsActionJustPressed("Take Screenshot"))
+        {
+            var image = GetViewport().GetTexture().GetData();
+            image.FlipY();
+            image.SavePng($"user://screenshot{DateTime.Now.ToString().Replace('/', '_').Replace(':', '_').Replace(' ', '_')}.png");
+        }
     }
 
     private void ChooseNextStation()
