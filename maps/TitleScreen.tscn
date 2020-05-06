@@ -64,7 +64,7 @@ rect_pivot_offset = Vector2( 119, -33 )
 custom_fonts/font = ExtResource( 3 )
 text = "You must deliver packages for Space Station Express to save up to at least $5000 in order to hire a new crew to handle this dangerous region. Some of the packages have odd requirements but you're confident you can keep them alive (assuming they were alive originally) during the trip. Also, supposedly your competitors have hired mercenaries to ambush you, but that's probably just a rumor.
 
-Controls: WASD to move and strafe, mouse to aim
+Controls: WASD/Arrow Keys to move and strafe, mouse to aim, ESC to quit
 Bump stations to repair, collect packages, and drop packages"
 align = 1
 valign = 1

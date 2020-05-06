@@ -53,6 +53,8 @@ public class PlayerShip : RigidBody
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        if (Input.IsKeyPressed((int)KeyList.Escape)) GetTree().Quit();
+
         CargoInvulnerableTime -= delta;
         if (CargoInvulnerableTime > 0 && Cargo != null) Cargo.HP = 1f;
 
