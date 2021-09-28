@@ -15,7 +15,6 @@ public class EnemyProjectile : RigidBody
         Connect("body_entered", this, nameof(OnBodyEntered));
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
         TTL -= delta;

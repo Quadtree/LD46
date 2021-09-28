@@ -123,5 +123,5 @@ environment = SubResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-autoplay = true
+volume_db = -40.0
 script = ExtResource( 14 )

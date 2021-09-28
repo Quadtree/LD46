@@ -50,9 +50,10 @@ public class PlayerShip : RigidBody
         Connect("body_entered", this, nameof(onBodyEntered));
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        //Util.SpawnOneShotSound((AudioStreamSample)GD.Load("res://sounds/CargoDamaged.wav"), this, this.GetGlobalLocation());
+
         CargoInvulnerableTime -= delta;
         if (CargoInvulnerableTime > 0 && Cargo != null) Cargo.HP = 1f;
 
@@ -70,6 +71,8 @@ public class PlayerShip : RigidBody
             ChooseNextStation();
 
             int n = Util.RandInt(0, 3);
+
+            Console.WriteLine($"GetTree().Root = {GetTree().Root}");
 
             int money = GetTree().Root.FindChildByType<PlayerMoneyHolder>().Money;
 
@@ -108,7 +111,13 @@ public class PlayerShip : RigidBody
             var image = GetViewport().GetTexture().GetData();
             image.FlipY();
             image.SavePng($"user://screenshot{DateTime.Now.ToString().Replace('/', '_').Replace(':', '_').Replace(' ', '_')}.png");
+
+            //OS.DumpMemoryToFile($"C:/tmp/mem_{DateTime.Now.ToString().Replace('/', '_').Replace(':', '_').Replace(' ', '_')}.txt");
+
+            //OS.GetDynamicMemoryUsage();
         }
+
+        Util.SpeedUpPhysicsIfNeeded();
     }
 
     private void ChooseNextStation()
@@ -164,6 +173,13 @@ public class PlayerShip : RigidBody
         if (Input.IsActionPressed("Thrust Brake"))
         {
             state.AddCentralForce(state.LinearVelocity.Normalized() * -ThrustPower);
+        }
+
+        if (OS.IsDebugBuild() && Input.IsActionPressed("self_destruct"))
+        {
+            QueueFree();
+
+            GetTree().Root.AddChild(RespawnerType.Instance());
         }
     }
 

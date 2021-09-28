@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Godot.Collections;
 
 public class EnemySpawner : Spatial
 {
@@ -9,7 +11,7 @@ public class EnemySpawner : Spatial
     // private string b = "text";
 
     [Export]
-    IList<PackedScene> EnemyTypes;
+    Array<PackedScene> EnemyTypes;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -17,7 +19,6 @@ public class EnemySpawner : Spatial
 
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
         var ps = GetTree().Root.FindChildByType<PlayerShip>();
@@ -26,13 +27,11 @@ public class EnemySpawner : Spatial
 
         if (ps != null)
         {
-
-
             if (Util.random() * 3 < delta)
             {
-                var numEnemies = GetTree().Root.FindChildrenByType<EnemyShip>().Count;
+                var numEnemies = GetTree().Root.FindChildrenByType<EnemyShip>().Count();
 
-                if (numEnemies < 6)
+                if (numEnemies < 3)
                 {
                     Console.WriteLine($"Spawning enemy {EnemyTypes}");
 
@@ -42,7 +41,7 @@ public class EnemySpawner : Spatial
                     var offset = new Vector3(Util.random() - 0.5f, 0, Util.random() - 0.5f).Normalized() * 80;
 
                     Console.WriteLine("About to instantiate");
-                    var enemy = (RigidBody)toSpawn.Instance();
+                    var enemy = (RigidBody)((PackedScene)toSpawn).Instance();
                     GetTree().Root.AddChild(enemy);
                     Console.WriteLine("Spawn is complete, setting location");
                     enemy.SetGlobalLocation(ps.GetGlobalLocation() + offset);

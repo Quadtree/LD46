@@ -37,3 +37,16 @@ Different types of creatures you're transporting. And probably other cargos.
 * Get music to loop
 
 # Tasks
+
+
+# Fixing the Memory Leak
+
+    setInterval(() => console.log(`mem=${(window.performance.memory.usedJSHeapSize / 1000 / 1000).toFixed(0)}`), 1000);
+
+Title screen peak memory usage:
+129MB
+
+## CHECKED
+- Enemies
+- Music
+

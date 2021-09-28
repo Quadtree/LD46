@@ -35,7 +35,6 @@ public class EnemyShip : RigidBody
     {
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
         FireCharge += delta;
@@ -49,7 +48,7 @@ public class EnemyShip : RigidBody
         if (ps != null)
         {
             var stations = GetTree().Root.FindChildrenByType<SpaceStation>();
-            if (stations.Count == 0) return;
+            if (stations.Count() == 0) return;
 
             var closestStation = stations.Min(it => it.GetGlobalLocation().DistanceTo(ps.GetGlobalLocation()));
 

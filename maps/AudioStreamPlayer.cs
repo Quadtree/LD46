@@ -17,6 +17,6 @@ public class AudioStreamPlayer : Godot.AudioStreamPlayer
     public override void _Process(float delta)
     {
         //Console.WriteLine($"{Playing}");
-        if (!Playing) Play();
+        if (!Playing && !OS.IsDebugBuild()) Play();
     }
 }
